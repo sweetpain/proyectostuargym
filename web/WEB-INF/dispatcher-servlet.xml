@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+
+    <!--
+    Most controllers will use the ControllerClassNameHandlerMapping above, but
+    for the index controller we are using ParameterizableViewController, so we must
+    define an explicit mapping for it.
+    -->
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <!-- TipoAccesorio -->
+                <prop key="index.htm">HomeController</prop>
+               
+                <prop key="editarTipoaccesorio.htm">TipoaccesorioController</prop>
+                <prop key="agregarTipoaccesorio.htm">TipoaccesorioController</prop>
+                <prop key="indexTipoaccesorio.htm">TipoaccesorioController</prop>
+                 <prop key="deleteTipoaccesorio.htm">TipoaccesorioController</prop>
+                 <!-- Accesorio -->
+                <prop key="editarAccesorio.htm">AccesorioController</prop>
+                <prop key="agregarAccesorio.htm">AccesorioController</prop>
+                <prop key="indexAccesorio.htm">AccesorioController</prop>
+                <prop key="deleteAccesorio.htm">AccesorioController</prop>
+                <!-- TipoPersona -->
+                <prop key="editarTipopersona.htm">TipoPersonaController</prop>
+                <prop key="agregarTipopersona.htm">TipoPersonaController</prop>
+                <prop key="indexTipopersona.htm">TipoPersonaController</prop>
+                <prop key="deleteTipopersona.htm">TipoPersonaController</prop>
+                 <!-- Persona -->
+                <prop key="editarPersona.htm">PersonaController</prop>
+                <prop key="agregarPersona.htm">PersonaController</prop>
+                <prop key="indexPersona.htm">PersonaController</prop>
+                <prop key="deletePersona.htm">PersonaController</prop>
+                <!-- Nivel -->
+                <prop key="editarNivel.htm">NivelController</prop>
+                <prop key="agregarNivel.htm">NivelController</prop>
+                <prop key="indexNivel.htm">NivelController</prop>
+                <prop key="deleteNivel.htm">NivelController</prop>
+                 <!-- Mensualidad --> 
+                <prop key="editarMensualidad.htm">MensualidadController</prop>
+                <prop key="agregarMensualidad.htm">MensualidadController</prop>
+                <prop key="indexMensualidad.htm">MensualidadController</prop>
+                <prop key="deleteMensualidad.htm">MensualidadController</prop>
+                 <!-- Asistencia --> 
+                <prop key="editarAsistencia.htm">AsistenciaController</prop>
+                <prop key="agregarAsistencia.htm">AsistenciaController</prop>
+                <prop key="indexAsistencia.htm">AsistenciaController</prop>
+                <prop key="deleteAsistencia.htm">AsistenciaController</prop>
+                 <!-- Inscripcion --> 
+                <prop key="editarInscripcion.htm">InscripcionController</prop>
+                <prop key="agregarInscripcion.htm">InscripcionController</prop>
+                <prop key="indexInscripcion.htm">InscripcionController</prop>
+                <prop key="deleteInscripcion.htm">InscripcionController</prop>
+                
+                 
+            </props>
+        </property>
+    </bean>
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp" />
+
+    <!--
+    The index controller.
+    -->
+     <bean name="TipoaccesorioController" class="Controller.TipoaccesorioController"/>
+     <bean name="AccesorioController" class="Controller.AccesorioController"/>
+     <bean name="HomeController" class="Controller.HomeController"/>
+      <bean name="TipoPersonaController" class="Controller.TipoPersonaController"/>
+     <bean name="PersonaController" class="Controller.PersonaController"/>
+     <bean name="NivelController" class="Controller.NivelController"/>
+      <bean name="MensualidadController" class="Controller.MensualidadController"/>
+      <bean name="AsistenciaController" class="Controller.AsistenciaController"/>
+      <bean name="InscripcionController" class="Controller.InscripcionController"/>
+      
+       
+
+</beans>
